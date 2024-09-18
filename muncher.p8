@@ -1,9 +1,47 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
+board_width=107
+board_height=102
+
 function _draw()
 	cls(1)
-	spr(1,20,20)
+	spr(1,17,20)
+	
+	x1=(127-board_width)/2
+	y1=(127-board_height)/2
+	x2=(127+board_width)/2
+	y2=(127+board_height)/2
+
+
+	rect(x1,y1,x2,y2,14)
+	rect(x1+2,y1+2,x2-2,y2-2,14)
+	
+	dy=(board_height-4) / 5
+	for i=1,5 do
+		local y=y1+2+(dy*i)
+		line(x1+2,y,x2-2,y,14)
+	end
+
+	dx=(board_width-4) / 6
+	for i=1,6 do
+		local x=x1+3+(dx*i)
+		line(x,y1+2,x,y2-2,14)
+	end
+
+	
+	--rect(12,17,115,115,14)
+	
+	--line(12,30,115,30,14)
+	--line(12,50,115,50,14)
+	--line(12,70,115,70,14)
+	--line(12,90,115,90,14)
+	
+	print("level: 1",2,4,7)
+	
+	line(40,2,94,2,7)
+	print("multiples of 2",40,4,7)
+	line(40,10,94,10,7)
 end
 __gfx__
 00000000000707000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
