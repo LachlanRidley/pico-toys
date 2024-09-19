@@ -4,9 +4,21 @@ __lua__
 board_width=107
 board_height=102
 
+muncher_x=17
+muncher_y=20
+move_right=0
+
+function _update()
+	if btn(➡️) and move_right==0 then move_right=18 end
+	if move_right>0 then
+		muncher_x+=1
+		move_right-=1
+	end
+end
+
 function _draw()
 	cls(1)
-	spr(1,17,20)
+	spr(1,muncher_x,muncher_y)
 	
 	x1=(127-board_width)/2
 	y1=(127-board_height)/2
